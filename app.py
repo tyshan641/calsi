@@ -1,10 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_templates, request
 
 app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_templates('index.html')
 
 @app.route('/calculate_sgpa', methods=['POST'])
 def calculate_sgpa():
@@ -32,7 +32,7 @@ def calculate_sgpa():
     
     sgpa = total_marks / total_credits
 
-    return render_template('index.html', sgpa=sgpa, total=total_marks)
+    return render_templates('index.html', sgpa=sgpa, total=total_marks)
 
 if __name__ == '__main__':
     app.run()
